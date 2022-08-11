@@ -19,7 +19,7 @@ Requirments:
         - cmake -DCMAKE_INSTALL_PREFIX="WhereToInstall" ..; make install
  P.S. to solve the *bug* with `cmake` on Gadi using `ccmake`
         - hit t to toggle advanced mode
-        - input in `MPI_Fortran_F77_HEADER_DIR` with `/apps/openmpi-mofed5.5-pbs2021.1/4.0.2/include`
-        - input in `MPI_Fortran_MODULE_DIR` with `/apps/openmpi-mofed5.5-pbs2021.1/4.0.2/lib`
+        - input in `MPI_Fortran_F77_HEADER_DIR` with `/apps/openmpi-mofed5.5-pbs2021.1/4.0.7/include`
+        - input in `MPI_Fortran_MODULE_DIR` with `/apps/openmpi-mofed5.5-pbs2021.1/4.0.7/lib`
         - hit `c` to configure and then `g` to generate makefile
         - if configuration at step 4 fails, delete the input for entry `m` then go to step 4 again
