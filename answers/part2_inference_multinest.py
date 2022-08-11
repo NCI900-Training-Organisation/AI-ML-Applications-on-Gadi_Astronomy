@@ -2,8 +2,9 @@ import numpy as np
 from pymultinest import run
 import scipy
 import tensorflow.compat.v1 as tf
-import time
+import time, os
 
+os.chdir('../../ai4astro')
 emulator = tf.keras.models.load_model('emulator')
 
 # define the meaning for the features, i.e. your model parameters
@@ -27,7 +28,7 @@ def log_likelihood(cube, ndim, nparams):
     theta = np.zeros(ndim)
     for i in range(ndim):
         theta[i] = cube[i]
-    model = emulator.predict(theta.reshape([1,-1]))[0]
+    model = emulator.predict(theta.reshape([1,-1]),verbose=False)[0]
     total_sum = 0
     current_index = 0
     
@@ -92,10 +93,11 @@ sampler = run(
     n_dims=len(limits),
     n_params=len(limits),
     n_live_points=400,
-    resume=True,
+    resume=False,
     verbose=True,
     write_output=True,
-    outputfiles_basename='./MultiNest/21CMMCEMU',
+    #outputfiles_basename='./MultiNest/21CMMCEMU',
+    outputfiles_basename='21CMMCEMU',
     max_iter=0,
     n_iter_before_update=10,
     importance_nested_sampling=False,
